@@ -39,7 +39,7 @@ namespace WOL
             client.MqttMsgPublishReceived += client_MqttMsgPublishReceived;
 
             string clientId = Guid.NewGuid().ToString();
-            client.Connect(clientId, "Krypt0n", "dima160597");
+            client.Connect(clientId, "USERNAME", "PASSWORD");
 
             // subscribe to the topic "/home/temperature" with QoS 2 
             client.Subscribe(new string[] { "/home/rooms/cabinet/pc" }, new byte[] { MqttMsgBase.QOS_LEVEL_EXACTLY_ONCE });
