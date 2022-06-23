@@ -1,0 +1,118 @@
+﻿<Window x:Class="TalosWorkshop.Subforms.Files"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TalosWorkshop.Subforms"
+        mc:Ignorable="d"
+        Title="Files" Height="450" Width="800">
+    <Grid Margin="10">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="6*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1.2*"/>
+            <RowDefinition Height="7*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <DockPanel Grid.Column="0" Grid.Row="0">
+            <Label Content="Владелец:" MaxHeight="25" DockPanel.Dock="Top"/>
+            <ComboBox x:Name="usersListComboBox" DockPanel.Dock="Bottom">
+                
+            </ComboBox>
+        </DockPanel>
+        <ListBox x:Name="filesListBox" Grid.Column="0" Grid.Row="1" Margin="0,5">
+            
+        </ListBox>
+        <Grid Grid.Column="0" Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Button x:Name="removeBtn" Margin="0,0,5,0" Grid.Column="0" Grid.Row="0">
+                <Image Margin="5" Source="/Resources/remove.png"></Image>
+            </Button>
+            <Button x:Name="addBtn" Margin="5,0,0,0" Grid.Column="1" Grid.Row="0">
+                <Image Margin="5" Source="/Resources/add.png"></Image>
+            </Button>
+        </Grid>
+        <Grid Grid.Column="1" Grid.Row="0" Grid.RowSpan="3" Margin="5,0,0,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="2*"/>
+                <RowDefinition Height="9*"></RowDefinition>
+            </Grid.RowDefinitions>
+            <DockPanel Grid.Column="0" Grid.Row="0" Margin="0,0,5,0">
+                <Label MaxHeight="24" DockPanel.Dock="Top" Foreground="#FF0057D4">
+                    <TextBlock x:Name="fontAwesomeLink" TextDecorations="Underline">Иконка (клик для поиска):</TextBlock>
+                </Label>
+                <TextBox x:Name="iconTextBox" DockPanel.Dock="Bottom" MaxHeight="28">
+                    
+                </TextBox>
+            </DockPanel>
+            <Grid Grid.Column="1" Grid.Row="0" >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="6*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1.5*"/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <DockPanel Grid.Column="0" Grid.RowSpan="2">
+                    <Label Content="Заголовок:" MaxHeight="23" DockPanel.Dock="Top"/>
+                    <TextBox x:Name="titleTextBox" DockPanel.Dock="Bottom" MaxHeight="28">
+
+                    </TextBox>
+                </DockPanel>
+                <Button x:Name="saveBtn" Grid.Column="1" Margin="5" >
+                    <Image Margin="5" Source="/Resources/save.png"></Image>
+                </Button>
+            </Grid>
+            <Grid Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="12*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <RichTextBox x:Name="fileContentRTB" Grid.Column="0" Grid.Row="0">
+                    <RichTextBox.CommandBindings>
+                        <CommandBinding Command="EditingCommands.AlignRight" CanExecute="BlockTheCommand"/>
+                        <CommandBinding Command="EditingCommands.AlignLeft" CanExecute="BlockTheCommand"/>
+                        <CommandBinding Command="EditingCommands.AlignCenter" CanExecute="BlockTheCommand"/>
+                        <CommandBinding Command="ApplicationCommands.Open" CanExecute="BlockTheCommand"/>
+                        <CommandBinding Command="ApplicationCommands.Find" CanExecute="BlockTheCommand"/>
+                        <CommandBinding Command="ApplicationCommands.Print" CanExecute="BlockTheCommand"/>
+                        <CommandBinding Command="ApplicationCommands.Save" CanExecute="BlockTheCommand"/>
+                    </RichTextBox.CommandBindings>
+                </RichTextBox>
+                <Grid Grid.Column="1" Grid.Row="0" Margin="5,0,0,0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Button x:Name="boldBtn" Margin="0,0,0,5" Grid.Column="0" Grid.Row="0">
+                        <TextBlock FontWeight="Bold">B</TextBlock></Button>
+                    <Button x:Name="italicBtn" Margin="0,0,0,5" Grid.Column="0" Grid.Row="1" Content="I" FontStyle="Italic"></Button>
+                    <Button x:Name="underlineBtn" Margin="0,0,0,5" Grid.Column="0" Grid.Row="2">
+                        <TextBlock TextDecorations="Underline">U</TextBlock></Button>
+                    <Button x:Name="strikeBtn" Margin="0,0,0,5" Grid.Column="0" Grid.Row="3">
+                        <TextBlock TextDecorations="Strikethrough">S</TextBlock></Button>
+                    <Button x:Name="redBtn" Margin="0,0,0,5" Grid.Column="0" Grid.Row="4" FontWeight="Bold" Content="R" Foreground="Red"></Button>
+                    <Button x:Name="greenBtn" Margin="0,0,0,5" Grid.Column="0" Grid.Row="5" FontWeight="Bold" Content="G" Foreground="Green"></Button>
+                    <Button x:Name="orangeBtn" Margin="0,0,0,5" Grid.Column="0" Grid.Row="6" FontWeight="Bold" Content="O" Foreground="Orange"></Button>
+                    <Button x:Name="glitchBtn" Margin="0,0,0,5" Grid.Column="0" Grid.Row="7" FontWeight="Bold" Content="GLT" Foreground="DeepPink"></Button>
+                </Grid>
+            </Grid>
+        </Grid>
+    </Grid>
+</Window>
